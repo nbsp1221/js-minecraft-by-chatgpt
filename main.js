@@ -37,11 +37,13 @@ function init() {
     scene.add(controls.getObject());
 
     let light = new THREE.PointLight(0xffffff);
+    let ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+    scene.add(ambientLight);
     light.position.set(-100,200,100);
     scene.add(light);
 
     // Define the material for the blocks
-    material = new THREE.MeshLambertMaterial({color: 0x1ec876});
+    material = new THREE.MeshPhongMaterial({color: 0x1ec876});
 
     // Create and place blocks in a grid
     for(let x = -5; x <= 5; x++) {
